@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENMAN - Unleash Your Writing Potential</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+        <h1>PENMAN</h1>
+    </header>
+    
+
+    <main>
+        <section class="hero">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+            </div>
+            <h3>Unleash Your Writing Potential</h3>
+            <p>Empower your writing with emotion detection and improvement suggestions.</p>     
+        </section>
+
+        <section class="cta">
+            <h2>Join PENMAN Today</h2>
+            <a href="{{ url_for('register') }}" class="button">Register Now</a>
+            <p>Already a member? <a href="{{ url_for('login') }}" class="loginword">Log In</a></p>
+        </section>
+
+        <div class="features-container">
+            <section class="features">
+                <h2>Emotion Detection</h2>
+                <img src="{{ url_for('static', filename='images/emotion.png') }}" alt="emotion" class="emotion">
+                <ul>
+                    <li><strong>Instant Analysis:</strong> Understand the emotional tone of your writing in seconds.</li>
+                    <li><strong>In-depth Insights:</strong> Receive detailed breakdowns of detected emotions.</li>
+                    <li><strong>Tailored Suggestions:</strong> Get personalized suggestions to enhance emotional impact.</li>
+                </ul>
+            </section>
+
+            <section class="features">
+                <h2>Writing Enhancement</h2>
+                <img src="{{ url_for('static', filename='images/writing.png') }}" alt="writing" class="writing">
+                <ul>
+                    <li><strong>Refine Your Style:</strong> Receive suggestions to improve clarity, tone, and engagement.</li>
+                    <li><strong>Grammar Check:</strong> Catch errors and polish your writing with our grammar checker.</li>
+                    <li><strong>Enhance Creativity:</strong> Unlock your creativity with prompts and tips.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p> 2024 &copy; PENMAN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

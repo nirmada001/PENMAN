@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emotion and Sentiment Analysis - PENMAN</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/file_details.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+                <h1>PENMAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>File Details</h1>
+            <div class="content">
+                <div class="original">
+                    <h2>Original Text</h2>
+                    <div class="original-content">
+                        <p class="suggestions-content">{{ file['text'] }}</p>
+                    </div>   
+                </div>
+                <div class="detected-result">
+                    <div class="result-list">
+                        <h2>Detected Results</h2>
+                        <p><strong>Highest Emotion:</strong> {{ file['highest_emotion'] }}</p>
+                        <p><strong>Emotion Percentage:</strong> {{ file['highest_emotion_percentage'] }}%</p>
+                        <p><strong>Suggestions:</strong> {{ file['suggestions'] }}</p>
+                        <p><strong>Emotions:</strong></p>
+                        <ul>
+                            {% for emotion, percentage in file['emotions'].items() %}
+                            <li>{{ emotion }}: {{ percentage }}%</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+        </div>
+    </main>
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 PENMAN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

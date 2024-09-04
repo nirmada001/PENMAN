@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+body {
+    line-height: 1.6;
+    background-color: #f5f6f761;
+}
+
+header a:hover{
+    text-decoration: none;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Header CSS */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.header-logo h1 {
+    margin-left: 10px;
+    font-size: 24px;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+
+/* main css */
+main {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.container.upload-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.username h2 {
+    color: #333;
+    font-family: "Poetsen One", sans-serif;
+}
+
+.container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    resize: none;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-detect {
+    font-family: "Poetsen One", sans-serif;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-upload {
+    font-family: "Poetsen One", sans-serif;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-upload i {
+    margin-right: 5px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.info-card {
+    flex: 1;
+    min-width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+}
+
+.info-card i {
+    font-size: 36px;
+    color: #007bff;
+}
+
+.info-card h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+.info-card p {
+    margin-top: 10px;
+    color: #666;
+}
+
+.section-heading {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    color: #0e0f0f;
+    font-family: 'Poetsen One', sans-serif;
+}

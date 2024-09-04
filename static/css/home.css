@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+/* General Styling */
+body {
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: 'Poetsen One', sans-serif;
+    padding: 0;
+}
+
+header a:hover{
+    text-decoration: none;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Header CSS */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.header-logo h1 {
+    margin-left: 10px;
+    font-size: 24px;
+    font-family: 'Poetsen One', sans-serif;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* hero section */
+.hero {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.hero p {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 100px; 
+    height: 100px; 
+}
+
+h1, h2, h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: "Poetsen One", sans-serif;
+}
+
+p {
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* welcome section */
+
+.welcome{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+main .cta h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: black;
+}
+
+.cta{
+    background-color: #7ac0eb2d;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3; 
+}
+
+
+/* features */
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; 
+}
+
+
+.features {
+    flex-basis: 48%; 
+    text-align: center;
+
+    flex: 1;
+    min-width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+}
+
+.features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.features ul li {
+    margin-bottom: 10px;
+}
+
+
+.emotion{
+    width: 300px;
+    height: 100px;
+}
+
+.writing{
+    width: 100px;
+    height: 100px;
+}
+
+/* footer */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.social-icons a:last-child {
+    margin-right: 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    main {
+        padding: 30px 10px;
+    }
+
+    main .welcome h2 {
+        font-size: 28px;
+    }
+
+    main .welcome p {
+        font-size: 16px;
+    }
+
+    main .cta h3 {
+        font-size: 24px;
+    }
+
+    main .cta .button {
+        padding: 12px 25px;
+        margin: 8px;
+    }
+}

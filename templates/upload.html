@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENMAN - Unleash Your Writing Potential</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+                <h1>PENMAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="username">
+        <h2>Welcome, {{ username }}!</h2>
+        <h3>Unleash Your Writing Potential</h3>
+        <p>Empower your writing with emotion detection and improvement suggestions.</p> 
+    </div>
+
+    <main>
+        <div class="container upload-container">
+            <h2>Upload File</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <textarea id="text-content" class="form-control" name="text_content" rows="6" placeholder="Upload text file to detect emotion..." required></textarea>
+                </div>
+                <div class="buttons">
+                    <label class="btn btn-secondary btn-upload">
+                        <i class="fas fa-upload"></i> Upload File
+                        <input type="file" id="file-upload" name="file" accept=".pdf,.docx,.txt" style="display: none;" required>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-detect">Detect Emotion</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- New Info Section -->
+        <div class="section-heading">
+            <h2>How Our System Works</h2>
+        </div>
+        <div class="info-section">
+            <div class="info-card">
+                <i class="fas fa-brain"></i>
+                <h3>Emotion Detection</h3>
+                <p>Detect and analyze emotions in your text with high accuracy.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Model Used</h3>
+                <p>Powered by DistilBERT for efficient and accurate analysis.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-star"></i>
+                <h3>High Accuracy</h3>
+                <p>Achieve reliable results with our advanced algorithms.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Sentiment Analysis</h3>
+                <p>Understand the sentiment behind your text easily using VADER.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Writing Improvement</h3>
+                <p>Receive enhancement suggestions through OpenAI's advanced language model.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 PENMAN. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('file-upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type === 'text/plain') {  // Check if file type is text
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('text-content').value = e.target.result;
+                    };
+                    reader.readAsText(file);
+                } else {
+                    alert("Invalid file type. Please upload a text file.");
+                    event.target.value = '';  // Clear the file input
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
+

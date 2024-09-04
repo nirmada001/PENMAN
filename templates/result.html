@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENMAN - Unleash Your Writing Potential</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+                <h1>PENMAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Emotion and Sentiment Analysis Result</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Emotions:</h4>
+                    <ul>
+                        {% for emotion, percentage in emotions.items() %}
+                            <li>{{ emotion }}: {{ (percentage * 100) | round(2) }}%</li>
+                        {% endfor %}
+                    </ul>
+                    <p>The highest detected emotion is: <strong>{{ highest_emotion }}</strong> with <strong>{{ highest_emotion_percentage | round(2) }}%</strong></p>
+
+                    <h4>Sentiment: </h4>
+                    <h5>{{ sentiment }}</h5>
+
+                </div>
+                <div class="col-md-6 graph-container">
+                    <h2>Emotion Analysis Graph</h2>
+                    <img src="{{ graph_filename }}" alt="Emotion Analysis Graph" class="img-fluid">
+                </div>
+            </div>
+            <a href="{{ url_for('upload') }}" class="button">Upload another file</a>
+
+            <form action="{{ url_for('suggestions') }}" method="post">
+               <center><button type="submit" class="btn btn-primary">Get Writing Improvement Suggestions</button></center> 
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 PENMAN. All rights reserved.</p>
+    </footer>
+</body>
+</html>

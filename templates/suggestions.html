@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PENMAN - Unleash Your Writing Potential</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/suggestions.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+                <h1>PENMAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Writing Improvement Suggestions</h1>
+            <h3>Detected Emotion with Highest Percentage: {{ highest_emotion }}</h3>
+            <div class="suggestion-content">
+                <div class="original">
+                    <h2>Original Text</h2>
+                    <div class="original-content">
+                        <p class="suggestions-content">{{ original_text }}</p>
+                    </div>   
+                </div>
+                <div class="suggetions">
+                    <h2>Suggestions</h2>
+                    <ul class="suggestions-list">
+                        {% set max_suggestions = 5 %}
+                        {% for suggestion in suggestions[:max_suggestions] %}
+                            <li>{{ suggestion }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <a href="{{ url_for('upload') }}" class="button">Upload another file</a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 PENMAN. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>

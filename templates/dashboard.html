@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PENMAN - Unleash Your Writing Potential</title>
+    <link rel="icon" type="image/png" href="{{  url_for('static', filename='images/penman logo-modified.png') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/penman logo-modified.png') }}" alt="PENMAN Logo">
+                <h1>PENMAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('upload') }}">Upload</a></li>
+                    <li><a href="{{ url_for('logout') }}">logout</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="tile1">
+                        <h2><a href="{{ url_for('upload') }}">Emotion Detection</a></h2>
+                        <img src="{{ url_for('static', filename='images/emotion.png') }}" alt="emotion" class="emotion">
+                        <p>Analyze the emotions in your text and visualize the results.</p>
+                    </div>
+                    <div class="tile2">
+                        <h2><a href="{{ url_for('upload') }}">Writing Improvement Suggestions</a></h2>
+                        <img src="{{ url_for('static', filename='images/writing.png') }}" alt="writing" class="writing">
+                        <p>Get suggestions to improve your writing based on detected emotions.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="user-profile">
+                        <h2>User Profile</h2>
+                        <p><strong>Username:</strong> {{ username }}</p>
+                        <p><strong>Email:</strong> {{ session['user']['email'] }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section to display uploaded files -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h3>Your Uploaded Files</h3>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Highest Emotion</th>
+                                <th>Emotion Percentage</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in uploaded_files %}
+                            <tr>
+                                <td>{{ file['filename'] }}</td>
+                                <td>{{ file['highest_emotion'] }}</td>
+                                <td>{{ file['highest_emotion_percentage'] }}%</td>
+                                <td>
+                                    <a href="{{ url_for('view_file', file_id=file['id']) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                    <form action="{{ url_for('delete_file', file_id=file['id']) }}" method="POST" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 PENMAN. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
